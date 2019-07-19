@@ -2,7 +2,7 @@ const nodes = [];
 
 const fragmentSymbol = Symbol("TestJsxFragmentSymbol");
 
-class TestJsx {
+export default class TestJsx {
   static h(element, props, children) {
     switch (element) {
       case this.Fragment:
@@ -69,56 +69,3 @@ class TestJsx {
     return [...nodes];
   }
 }
-
-function getNodes() {
-  return (
-    <describe description="Test suite" value incrementBy={1}>
-      {({ value, set, get, incrementBy }) => (
-        <>
-          <beforeEach>{() => set("value", 0)}</beforeEach>
-
-          <it should="be zero">
-            {() => <assert value={get("value")} equals={0} />}
-          </it>
-
-          <describe description="increment">
-            {() => (
-              <>
-                <beforeEach>
-                  {() =>
-                    console.log(
-                      `incrementing ${value} by ${incrementBy} to equal ${value +
-                        incrementBy} `
-                    ) && set("value", value + incrementBy)
-                  }
-                </beforeEach>
-
-                <it should="be one">
-                  {() => <assert value={get("value")} equals={1} />}
-                </it>
-
-                <describe description="increment again">
-                  {() => (
-                    <>
-                      <beforeEach>
-                        {() => set("value", value + incrementBy)}
-                      </beforeEach>
-
-                      <it should="be two">
-                        {() => <assert value={get("value")} equals={2} />}
-                      </it>
-                    </>
-                  )}
-                </describe>
-              </>
-            )}
-          </describe>
-        </>
-      )}
-    </describe>
-  );
-}
-
-const testNodes = getNodes();
-
-console.log(JSON.stringify(testNodes, null, 2));
