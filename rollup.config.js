@@ -1,7 +1,7 @@
 import babel from "rollup-plugin-babel";
 
 export default {
-  input: "testjsx.js",
+  input: "src/index.js",
   output: {
     file: "dist/bundle.js",
     format: "cjs"
