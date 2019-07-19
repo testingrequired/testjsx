@@ -15,9 +15,19 @@ export default class TestJsx {
         if (typeof children === "function") {
           const { description, ...propsData } = props;
 
+          const mappedPropsData = Object.keys(propsData).reduce((arr, key) => {
+            let mappedValue;
+
+            if (propsData[key] !== true && propsData[key] !== false) {
+              mappedValue = propsData[key];
+            }
+
+            return { ...arr, [key]: mappedValue };
+          }, {});
+
           debugger;
 
-          return children({ ...propsData, set, get });
+          return children({ ...mappedPropsData, set, get });
 
           function set(key, newValue) {
             debugger;
