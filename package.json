@@ -1,16 +1,17 @@
 {
-  "name": "testjsx",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@testingrequired/testjsx",
+  "version": "0.0.0",
+  "description": "A test running build with a jsx pragma",
+  "main": "dist/bundle.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js",
     "dev": "babel-node src/runner.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kylee Tilley <kylee@testingrequired.com>",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
