@@ -14,12 +14,7 @@ export default () => (
           {() => (
             <>
               <beforeEach>
-                {() =>
-                  console.log(
-                    `incrementing ${value} by ${incrementBy} to equal ${value +
-                      incrementBy} `
-                  ) && set("value", value + incrementBy)
-                }
+                {() => set("value", get("value") + incrementBy)}
               </beforeEach>
 
               <it should="be one">
@@ -30,7 +25,7 @@ export default () => (
                 {() => (
                   <>
                     <beforeEach>
-                      {() => set("value", value + incrementBy)}
+                      {() => set("value", get("value") + incrementBy)}
                     </beforeEach>
 
                     <it should="be two">
